@@ -1,0 +1,6 @@
+{
+  "boards": "peg",
+  "pins": "pinned",
+  "users": "shared",
+  "auth": "users"
+}
