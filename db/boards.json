@@ -1,0 +1,14 @@
+{
+  "board1":{
+    "name": "Decor",
+    "descripton": "bohemian"
+  },
+  "board2":{
+    "name": "food",
+    "descripton": "italian"
+  },
+  "board3":{
+    "name": "fitness",
+    "descripton": "aerocbatics"
+  }
+}
