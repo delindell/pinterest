@@ -1,17 +1,17 @@
 {
   "board1":{
     "name": "Decor",
-    "descripton": "bohemian",
+    "description": "bohemian",
     "uid": "C2EWOBcCLLUvMAz5Omc4GieMPSQ2"
   },
   "board2":{
     "name": "food",
-    "descripton": "italian",
+    "description": "italian",
     "uid": "123"
   },
   "board3":{
     "name": "fitness",
-    "descripton": "aerocbatics",
+    "description": "aerocbatics",
     "uid": "456"
   }
 }
