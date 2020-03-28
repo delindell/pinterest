@@ -13,5 +13,20 @@
     "name": "fitness",
     "description": "aerocbatics",
     "uid": "456"
+  },
+  "board4":{
+    "name": "finance",
+    "description": "index funds",
+    "uid": "C2EWOBcCLLUvMAz5Omc4GieMPSQ2"
+  },
+  "board5":{
+    "name": "sports",
+    "description": "waterpolo",
+    "uid": "C2EWOBcCLLUvMAz5Omc4GieMPSQ2"
+  },
+  "board6":{
+    "name": "fitness",
+    "description": "aerocbatics",
+    "uid": "456"
   }
 }
