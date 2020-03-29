@@ -14,7 +14,7 @@ const init = () => {
   myNavbar.logoutEvent();
   authData.checkLoginStatus();
   home.homeScreen();
-  board.boardScreen();
+  $('body').on('click', '#close-single-view', board.buildBoards);
 };
 
 init();
