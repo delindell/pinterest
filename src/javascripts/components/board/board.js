@@ -1,5 +1,6 @@
 import utils from '../../helpers/utils';
 import boardData from '../../helpers/data/boardData';
+import singleBoard from '../singleBoard/singleBoard';
 
 const removeBoard = (e) => {
   const boardId = e.target.closest('.card').id;
@@ -9,6 +10,16 @@ const removeBoard = (e) => {
       buildBoards();
     })
     .catch((err) => console.error('could not delete board', err));
+};
+
+const viewSingleBoard = (e) => {
+  boardData.getBoards()
+    .then((boards) => {
+      const boardId = e.target.closest('.card').id;
+      const selectedBoard = boards.find((currentBoard) => boardId === currentBoard.id);
+      singleBoard.singleBoardBuilder(selectedBoard);
+    })
+    .catch((err) => console.error('messed up', err));
 };
 
 const buildBoards = () => {
@@ -24,14 +35,18 @@ const buildBoards = () => {
         domString += '<div class="card-body">';
         domString += `<h5 class="card-title">${board.description}</h5>`;
         domString += '<button class="btn btn-danger delete-board"><i class="fas fa-trash"></i></button>';
+        domString += '<button class="btn btn-danger single-board"><i class="fas fa-eye"></i></button>';
+        domString += '</div>';
         domString += '</div>';
         domString += '</div>';
         domString += '</div>';
       });
       utils.printToDom('board', domString);
-      $('body').on('click', '.delete-board', removeBoard);
+      utils.printToDom('singleBoardView', '');
+      $('.delete-board').click(removeBoard);
+      $('.single-board').click(viewSingleBoard);
     })
     .catch((err) => console.error('board broke', err));
 };
 
-export default { buildBoards };
+export default { buildBoards, viewSingleBoard };

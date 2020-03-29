@@ -6,6 +6,7 @@ import authData from './helpers/data/authData';
 import auth from './components/auth/auth';
 import myNavbar from './components/myNavbar/myNavbar';
 import home from './components/home/home';
+import board from './components/board/board';
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
@@ -13,6 +14,7 @@ const init = () => {
   myNavbar.logoutEvent();
   authData.checkLoginStatus();
   home.homeScreen();
+  $('body').on('click', '#close-single-view', board.buildBoards);
 };
 
 init();

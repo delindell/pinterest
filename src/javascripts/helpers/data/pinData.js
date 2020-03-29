@@ -13,11 +13,10 @@ const getPins = () => new Promise((resolve, reject) => {
         pins.push(demPins[pinId]);
       });
       resolve(pins);
-      console.log('pins array', pins);
     })
     .catch((err) => reject(err));
 });
 
-// const getPins = () => axios.get(`${baseUrl}/pins.json`);
+const deletePin = (pinId) => axios.delete(`${baseUrl}/pins/${pinId}.json`);
 
-export default { getPins };
+export default { getPins, deletePin };

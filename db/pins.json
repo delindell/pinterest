@@ -5,7 +5,7 @@
   },
   "pin2":{
     "imgUrl": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/5660549791001/7469ceb9-b1b7-45bd-994c-4a0799bfef10/44942dfd-f3b0-47ae-a574-b2e45329a229/1000x563/match/image.jpg",
-    "boardId": "board2"
+    "boardId": "board1"
   },
   "pin3":{
     "imgUrl": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/5660549791001/7469ceb9-b1b7-45bd-994c-4a0799bfef10/44942dfd-f3b0-47ae-a574-b2e45329a229/1000x563/match/image.jpg",
@@ -13,7 +13,7 @@
   },
   "pin4":{
     "imgUrl": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/5660549791001/7469ceb9-b1b7-45bd-994c-4a0799bfef10/44942dfd-f3b0-47ae-a574-b2e45329a229/1000x563/match/image.jpg",
-    "boardId": "board2"
+    "boardId": "board1"
   },
   "pin5":{
     "imgUrl": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/5660549791001/7469ceb9-b1b7-45bd-994c-4a0799bfef10/44942dfd-f3b0-47ae-a574-b2e45329a229/1000x563/match/image.jpg",

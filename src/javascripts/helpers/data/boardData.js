@@ -13,7 +13,6 @@ const getBoards = () => new Promise((resolve, reject) => {
         boards.push(demBoards[boardId]);
       });
       resolve(boards);
-      console.log('boards array', boards);
     })
     .catch((err) => reject(err));
 });
