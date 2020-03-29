@@ -2,7 +2,6 @@ import pinData from '../../helpers/data/pinData';
 import utils from '../../helpers/utils';
 
 const removePin = (e) => {
-  console.log(e.target.closest('.card').id);
   const pinId = e.target.closest('.card').id;
   pinData.deletePin(pinId);
   // const selectedBoard =
@@ -39,8 +38,7 @@ const singleBoardBuilder = (selectedBoard) => {
       domString += '</div>';
       utils.printToDom('board', '');
       utils.printToDom('singleBoardView', domString);
-      $('.delete-pin-button').click(removePin);
     });
 };
 
-export default { singleBoardBuilder };
+export default { singleBoardBuilder, removePin };
