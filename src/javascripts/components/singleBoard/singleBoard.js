@@ -1,21 +1,21 @@
 import pinData from '../../helpers/data/pinData';
 import utils from '../../helpers/utils';
+import boardData from '../../helpers/data/boardData';
+
 
 const removePin = (e) => {
-  console.log(e.target.closest('.card').id);
   const pinId = e.target.closest('.card').id;
-  pinData.deletePin(pinId);
-  // const selectedBoard =
-  // // eslint-disable-next-line no-use-before-define
-  // singleBoardBuilder(selectedBoard)
-  //   // .then(() => {
-  //   //   console.log(response.config.url);
-  // })
-  // .catch((err) => console.error('could not delete pin', err));
+  const boardId = e.data;
+  pinData.deletePin(pinId)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      singleBoardBuilder(boardId);
+    })
+    .catch((err) => console.error('could not delete pin', err));
 };
 
 const singleBoardBuilder = (selectedBoard) => {
-  pinData.getPins()
+  pinData.getPins(selectedBoard)
     .then((pins) => {
       let domString = '';
       domString += '<button class="btn btn-outline-dark" id="close-single-view"><i class="fas fa-window-close"></i></button>';
@@ -39,8 +39,32 @@ const singleBoardBuilder = (selectedBoard) => {
       domString += '</div>';
       utils.printToDom('board', '');
       utils.printToDom('singleBoardView', domString);
-      $('.delete-pin-button').click(removePin);
+      $('body').on('click', '.delete-pin-button', selectedBoard, removePin);
     });
 };
 
-export default { singleBoardBuilder };
+// const viewSingleBoard = (e) => {
+//   boardData.getBoards()
+//     .then((boards) => {
+//       const boardId = e.target.closest('.card').id;
+//       const selectedBoard = boards.find((currentBoard) => boardId === currentBoard.id);
+//       pinData.getPins().then((pins) => {
+//         const pinId = e.target.closest('.card').id;
+//         const selectedPin = pins.find((currentPin) => pinId === currentPin.id);
+//         singleBoardBuilder(selectedBoard, selectedPin);
+//       })
+//         .catch((err) => console.error('messed up', err));
+//     });
+// };
+
+const viewSingleBoard = (e) => {
+  boardData.getBoards()
+    .then((boards) => {
+      const boardId = e.target.closest('.card').id;
+      const selectedBoard = boards.find((currentBoard) => boardId === currentBoard.id);
+      singleBoardBuilder(selectedBoard);
+    })
+    .catch((err) => console.error('messed up', err));
+};
+
+export default { singleBoardBuilder, removePin, viewSingleBoard };

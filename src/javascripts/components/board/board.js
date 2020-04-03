@@ -1,25 +1,22 @@
 import utils from '../../helpers/utils';
 import boardData from '../../helpers/data/boardData';
-import singleBoard from '../singleBoard/singleBoard';
+import pinData from '../../helpers/data/pinData';
 
 const removeBoard = (e) => {
   const boardId = e.target.closest('.card').id;
   boardData.deleteBoard(boardId)
     .then(() => {
+      pinData.getPins(boardId).then((allPins) => {
+        allPins.forEach((pin) => {
+          if (boardId === pin.boardId) {
+            pinData.deletePin(pin.id);
+          }
+        });
+      });
       // eslint-disable-next-line no-use-before-define
       buildBoards();
     })
     .catch((err) => console.error('could not delete board', err));
-};
-
-const viewSingleBoard = (e) => {
-  boardData.getBoards()
-    .then((boards) => {
-      const boardId = e.target.closest('.card').id;
-      const selectedBoard = boards.find((currentBoard) => boardId === currentBoard.id);
-      singleBoard.singleBoardBuilder(selectedBoard);
-    })
-    .catch((err) => console.error('messed up', err));
 };
 
 const buildBoards = () => {
@@ -44,9 +41,8 @@ const buildBoards = () => {
       utils.printToDom('board', domString);
       utils.printToDom('singleBoardView', '');
       $('.delete-board').click(removeBoard);
-      $('.single-board').click(viewSingleBoard);
     })
     .catch((err) => console.error('board broke', err));
 };
 
-export default { buildBoards, viewSingleBoard };
+export default { buildBoards };
