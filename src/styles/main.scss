@@ -10,5 +10,34 @@ body {
 }
 
 .pin-img {
-  max-width: 100px;
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.selected-board-header{
+  text-align: center;
+  margin: 10px;
+}
+
+.board-pins {
+  margin: 10px;
+}
+
+#all-boards {
+  margin: 10px;
+  text-align: center;
+  button {
+    margin: 10px;
+    padding: 10px;
+  }
+  #board-name {
+    font-size: 50px;
+    font-weight: bolder;
+  }
+}
+
+.all-boards-title {
+  font-size: 100px;
 }
