@@ -16,7 +16,7 @@ const init = () => {
   authData.checkLoginStatus();
   home.homeScreen();
   $('body').on('click', '#close-single-view', board.buildBoards);
-  $('body').on('click', '.delete-pin-button', singleBoard.removePin, singleBoard.singleBoardBuilder);
+  $('body').on('click', '.single-board', singleBoard.viewSingleBoard);
 };
 
 init();
