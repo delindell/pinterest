@@ -1,32 +1,52 @@
 {
   "board1":{
     "name": "Decor",
-    "description": "bohemian",
+    "description": "Bohemian",
     "uid": "C2EWOBcCLLUvMAz5Omc4GieMPSQ2"
   },
   "board2":{
-    "name": "food",
-    "description": "italian",
+    "name": "Food",
+    "description": "Italian",
     "uid": "123"
   },
   "board3":{
-    "name": "fitness",
-    "description": "aerocbatics",
+    "name": "Fitness",
+    "description": "Aerobics",
     "uid": "456"
   },
   "board4":{
-    "name": "finance",
-    "description": "index funds",
+    "name": "Finance",
+    "description": "Index Funds",
     "uid": "C2EWOBcCLLUvMAz5Omc4GieMPSQ2"
   },
   "board5":{
-    "name": "sports",
-    "description": "waterpolo",
+    "name": "Sports",
+    "description": "Waterpolo",
     "uid": "C2EWOBcCLLUvMAz5Omc4GieMPSQ2"
   },
   "board6":{
     "name": "fitness",
     "description": "aerocbatics",
     "uid": "456"
+  },
+  "board7":{
+    "name": "Outdoors",
+    "description": "Hiking",
+    "uid": "C2EWOBcCLLUvMAz5Omc4GieMPSQ2"
+  },
+  "board8":{
+    "name": "Outdoors",
+    "description": "Kayaking",
+    "uid": "C2EWOBcCLLUvMAz5Omc4GieMPSQ2"
+  },
+  "board9":{
+    "name": "DIY",
+    "description": "Wood Working",
+    "uid": "C2EWOBcCLLUvMAz5Omc4GieMPSQ2"
+  },
+  "board10":{
+    "name": "Sports",
+    "description": "Golfing",
+    "uid": "C2EWOBcCLLUvMAz5Omc4GieMPSQ2"
   }
 }

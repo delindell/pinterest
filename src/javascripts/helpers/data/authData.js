@@ -7,11 +7,6 @@ const homeDiv = $('#home');
 const boardDiv = $('#board');
 const logoutButton = $('#navbar-logout-button');
 
-const getCurrentUid = () => {
-  const myUid = firebase.auth().currentUser.uid;
-  console.log(myUid);
-};
-
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -28,7 +23,6 @@ const checkLoginStatus = () => {
       boardDiv.addClass('hide');
       logoutButton.addClass('hide');
     }
-    getCurrentUid();
   });
 };
 

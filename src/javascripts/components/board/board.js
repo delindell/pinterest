@@ -1,3 +1,5 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import utils from '../../helpers/utils';
 import boardData from '../../helpers/data/boardData';
 import pinData from '../../helpers/data/pinData';
@@ -20,24 +22,25 @@ const removeBoard = (e) => {
 };
 
 const buildBoards = () => {
-  boardData.getBoards()
+  const myUid = firebase.auth().currentUser.uid;
+  boardData.getBoardsByUid(myUid)
     .then((boards) => {
       let domString = '';
-      domString += '<h2 class="text-center">Boards</h2>';
-      domString += '<div class="d-flex flew-wrap">';
+      domString += '<h1 class="text-center all-boards-title">Boards</h1>';
+      domString += '<div class="d-flex flex-wrap justify-content-center">';
       boards.forEach((board) => {
-        domString += '<div class="col-3">';
+        domString += '<div class="col-3" id="all-boards">';
         domString += `<div class="card" id="${board.id}">`;
-        domString += `<div class="card-header">${board.name}</div>`;
+        domString += `<div class="card-header" id="board-name">${board.name}</div>`;
         domString += '<div class="card-body">';
-        domString += `<h5 class="card-title">${board.description}</h5>`;
-        domString += '<button class="btn btn-danger delete-board"><i class="fas fa-trash"></i></button>';
-        domString += '<button class="btn btn-danger single-board"><i class="fas fa-eye"></i></button>';
-        domString += '</div>';
+        domString += `<h5 class="card-title" id="board-description">${board.description}</h5>`;
+        domString += '<button class="btn btn-outline-danger delete-board"><i class="fas fa-trash"></i></button>';
+        domString += '<button class="btn btn-outline-primary single-board"><i class="fas fa-eye"></i></button>';
         domString += '</div>';
         domString += '</div>';
         domString += '</div>';
       });
+      domString += '</div>';
       utils.printToDom('board', domString);
       utils.printToDom('singleBoardView', '');
       $('.delete-board').click(removeBoard);
