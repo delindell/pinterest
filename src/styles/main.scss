@@ -1,6 +1,35 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.new-board-form {
+  margin: auto;
+}
+
+.new-pin-form {
+  display: flex;
+  align-items: center;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+
+input {
+  max-width: 60%
+  margin 10px;
+}
+
+#new-pin-entry {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 body {
   background-color: slateblue;
 }
@@ -14,6 +43,11 @@ body {
   min-height: 200px;
   max-width: 200px;
   max-height: 200px;
+}
+
+.add-new-board-button-container {
+  text-align: center;
+  margin: 10px;
 }
 
 .selected-board-header{
@@ -40,4 +74,23 @@ body {
 
 .all-boards-title {
   font-size: 100px;
+}
+
+#new-board-entry {
+  margin-top: 25px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hide-2 {
+  display: none;
+}
+
+footer {
+  font-size: x-large;
+  font-weight: bolder;
+  background-color: white;
+  padding: 20px;
+  margin-top: 30px;
 }

@@ -4,6 +4,10 @@ import pinData from '../../helpers/data/pinData';
 import utils from '../../helpers/utils';
 import boardData from '../../helpers/data/boardData';
 
+const newBoardForm = $('#new-board-entry');
+const newBoardButton = $('#add-new-board-button');
+
+
 const removePin = (e) => {
   const pinId = e.target.closest('.card').id;
   const boardId = e.data;
@@ -15,12 +19,27 @@ const removePin = (e) => {
     .catch((err) => console.error('could not delete pin', err));
 };
 
+const makeNewPin = (e) => {
+  e.preventDefault();
+  const selectedBoard = e.data;
+  const newestPin = {
+    imgUrl: $('#pin-image-link').val(),
+    boardId: e.data.id,
+  };
+  pinData.addPin(newestPin)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      singleBoardBuilder(selectedBoard);
+    })
+    .catch((err) => console.error('could not add new pin', err));
+};
+
 const singleBoardBuilder = (selectedBoard) => {
   pinData.getPins(selectedBoard)
     .then((pins) => {
       let domString = '';
       domString += '<div class="selected-board-header">';
-      domString += `<h2 class="board-name">${selectedBoard.name}</h2>`;
+      domString += `<h2 class="board-name">${selectedBoard.description}</h2>`;
       domString += '<button class="btn btn-outline-dark" id="close-single-view"><i class="fas fa-window-close"></i></button>';
       domString += '</div>';
       domString += `<div class="container d-flex justify-content-center" id="${selectedBoard.id}">`;
@@ -37,9 +56,19 @@ const singleBoardBuilder = (selectedBoard) => {
       });
       domString += '</div>';
       domString += '</div>';
+      domString += '<form id="new-pin-entry">';
+      domString += '<h2>Make A New Pin</h2>';
+      domString += '<div class="form-group new-pin-form">';
+      domString += '<input type="text" class="form-control" id="pin-image-link" placeholder="Enter Pin Image Link">';
+      domString += '</div>';
+      domString += '<button type="submit" class="btn btn-primary" id="new-pin-submit-button">Submit</button>';
+      domString += '</form>';
+      newBoardForm.addClass('hide');
+      newBoardButton.addClass('hide');
       utils.printToDom('board', '');
       utils.printToDom('singleBoardView', domString);
       $('.delete-pin-button').click(selectedBoard, removePin);
+      $('#new-pin-submit-button').click(selectedBoard, makeNewPin);
     });
 };
 

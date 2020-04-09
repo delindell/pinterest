@@ -6,6 +6,7 @@ const authDiv = $('#auth');
 const homeDiv = $('#home');
 const boardDiv = $('#board');
 const logoutButton = $('#navbar-logout-button');
+const newBoardForm = $('#new-board-entry');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -15,6 +16,7 @@ const checkLoginStatus = () => {
       homeDiv.addClass('hide');
       boardDiv.removeClass('hide');
       logoutButton.removeClass('hide');
+      // newBoardForm.removeClass('hide');
       board.buildBoards();
     } else {
       // person not logged in
@@ -22,6 +24,7 @@ const checkLoginStatus = () => {
       homeDiv.removeClass('hide');
       boardDiv.addClass('hide');
       logoutButton.addClass('hide');
+      newBoardForm.addClass('hide');
     }
   });
 };
