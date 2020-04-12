@@ -82,7 +82,7 @@ const singleBoardBuilder = (selectedBoard, boards) => {
           domString += '<h4>Move Pin</h4>';
           boards.forEach((board) => {
             domString += '<div class="form-check">';
-            domString += `<input type="checkbox" class="form-check-input board-change-checkbox" data-pin-id="${pin.id}" data-board-uid="${board.uid}" id="${board.id}">`;
+            domString += `<input type="checkbox" class="form-check-input board-change-checkbox" data-pin-id="${pin.id}" data-board-uid="${board.uid}" id="${board.id}" ${selectedBoard.id === board.id ? 'checked' : ''}>`;
             domString += `<label class="form-check-label" for="exampleCheck1">${board.name}</label>`;
             domString += '</div>';
           });
